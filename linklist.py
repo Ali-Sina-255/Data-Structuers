@@ -80,7 +80,7 @@ class Linklist:
     
     
     def Get(self, index):
-        if index < 0 or index >= self.lenght:
+        if index <= 0 or index >= self.lenght:
             return None
         temp = self.head
         for _ in range(index):
@@ -88,17 +88,25 @@ class Linklist:
         return temp.value
         
         
-        
-        
+    def Set_value(self,index ,value):
+        temp = self.Get(index)
+        if temp:
+            temp.value = value
+            return True
+        return False
+    
+
+    
+    
+    
 first = Linklist(11)
 first.Append(1)
 first.Append(100)
 first.Append(200)
+# first.Set_value(1,100000000)
 first.Append(4234)
 first.Perpend(0)
-# first.Perpend(0.121)
+first.Perpend(0.121)
 first.Pop_first()
-# first.Pop()
-first.Perpend(0)
-print(first.Get(3))
+print(first.Get(2))
 first.Print_lsit()
