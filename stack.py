@@ -43,9 +43,14 @@ class Stack :
 
             self.hieght -= 1 
             return temp.data
-        
-    
-        
+
+stack = []
+def append(value):
+    return stack.append(value)
+num = input('Enter The Number.')
+result = append(num)
+print(stack)
+
 mystack = Stack(1)
 mystack.Append(4)
 mystack.Append(4)
