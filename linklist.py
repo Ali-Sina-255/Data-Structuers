@@ -1,37 +1,35 @@
 class Node:
-    def __init__(self,value) -> None:
+    def __init__(self, value) -> None:
         self.value = value
         self.next = None
-        
-class Linklist:
-    def __init__(self,value) -> None:
-        new_node =  Node(value)
+
+
+class LinkedList:
+    def __init__(self, value) -> None:
+        new_node = Node(value)
         self.head = new_node
         self.tail = new_node
-        self.lenght =  1 
-    
-    
-    def Print_lsit(self):
-        
+        self.lenght = 1
+
+    def Print_list(self):
+
         temp = self.head
         while temp is not None:
-            
+
             print(temp.value, "-->", end=" ")
             temp = temp.next
-    
-    
-    def Append(self,value):
+
+    def Append(self, value):
         new_node = Node(value)
         if self.lenght == 0:
             self.head = new_node
             self.tail = new_node
-        
+
         else:
             self.tail.next = new_node
             self.tail = new_node
-        self.lenght  +=1
-    
-    
+        self.lenght += 1
+
     def Pop(self):
         if self.lenght == 0:
             return None
@@ -40,29 +38,29 @@ class Linklist:
         while temp.next is not None:
             pre = temp
             temp = temp.next
-        
+
         self.tail = pre
         self.tail.next = None
         self.lenght -= 1
-        
+
         if self.lenght == 0:
             self.head = None
-            self.tail  = None
+            self.tail = None
         return temp
-    
+
     def Perpend(self, value):
         new_node = Node(value)
         if self.lenght == 0:
             self.head = new_node
             self.tail = new_node
-        
+
         else:
             new_node.next = self.head
             self.head = new_node
-        
+
         self.lenght += 1
-        return  True
-    
+        return True
+
     def Pop_first(self):
         if self.lenght == 0:
             return None
@@ -71,14 +69,13 @@ class Linklist:
             self.head = self.head.next
             temp.next = None
             self.lenght -= 1
-            
-            if self.lenght ==0:
-                
+
+            if self.lenght == 0:
+
                 self.tail = None
-                
+
             return temp
-    
-    
+
     def Get(self, index):
         if index <= 0 or index >= self.lenght:
             return None
@@ -86,19 +83,15 @@ class Linklist:
         for _ in range(index):
             temp = temp.next
         return temp.value
-        
-        
-    def Set_value(self,index ,value):
+
+    def Set_value(self, index, value):
         temp = self.Get(index)
         if temp:
             temp.value = value
             return True
         return False
-    
 
-    
-    
-    
+
 first = Linklist(11)
 first.Append(1)
 first.Append(100)
